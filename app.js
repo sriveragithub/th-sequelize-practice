@@ -8,12 +8,18 @@ const { Movie } = db.models;
 
   try {
     const movie = await Movie.create({
-      title: 'Toy Story'
+      title: 'Toy Story',
+      runtime: 81,
+      releaseDate: '1995-11-22',
+      isAvailableOnVHS: true,
     });
     console.log(movie.toJSON());
 
     const movie2 = await Movie.create({
-      title: 'The Incredibles'
+      title: 'The Incredibles',
+      runtime: 115,
+      releaseDate: '2004-04-14',
+      isAvailableOnVHS: true,
     });
     console.log(movie2.toJSON());
 
