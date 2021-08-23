@@ -51,7 +51,13 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: false,
     },
-  }, { sequelize });
+  }, {
+      timestamps: false, // disable timestamps
+      freezeTableName: true, // disables pluralization of table name
+      modelName: 'movie', // renames model while also accounting for freezeTableName setting
+      // tableName: 'my_movies_table', // table name change
+      sequelize
+    });
 
   return Movie;
 };
