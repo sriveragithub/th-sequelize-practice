@@ -52,10 +52,11 @@ module.exports = (sequelize) => {
       defaultValue: false,
     },
   }, {
-      timestamps: false, // disable timestamps
-      freezeTableName: true, // disables pluralization of table name
-      modelName: 'movie', // renames model while also accounting for freezeTableName setting
+      // timestamps: false, // disable timestamps
+      // freezeTableName: true, // disables pluralization of table name
+      // modelName: 'movie', // renames model while also accounting for freezeTableName setting
       // tableName: 'my_movies_table', // table name change
+      paranoid: true, // enable "soft" deletes + creates deleted_at column; When running queries, Sequelize will automatically filter out records whose deletedAt column values are not null. Those records will no longer be included in future queries.
       sequelize
     });
 
